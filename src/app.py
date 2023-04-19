@@ -29,7 +29,7 @@ import texts
 import template
 
 
-app = dash.Dash()
+app = dash.Dash(__name__, assets_folder='assets')
 
 server = app.server
 
@@ -57,7 +57,8 @@ dataUnivariateChart2 = preprocess.getCancellationAndAdlRelation(dataframe2)
 # template.create_custom_theme()
 # template.set_default_theme()
 
-app.layout = html.Div(className='content', children=[
+app.layout = html.Div(className='content', children=[ 
+    html.Link(rel='stylesheet', href='/assets/styles.css'),
     html.Header(className='header', children=[
         html.H1('AlayaCare'),
         html.H2("Relations entourant un patient et ses visites médicales")
