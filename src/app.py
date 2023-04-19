@@ -36,6 +36,8 @@ app = dash.Dash(__name__, assets_folder='assets')
 
 server = app.server
 
+app.config.suppress_callback_exceptions = True
+
 app.title = 'AlayaCare'
 
 dataframe = pd.read_csv('./assets/data/notes.csv')
