@@ -26,6 +26,9 @@ import section_3_grouped_bar_chart
 
 import texts
 
+import plotly.io as pio
+pio.renderers.default = 'iframe'
+
 import template
 
 
@@ -58,7 +61,7 @@ dataUnivariateChart2 = preprocess.getCancellationAndAdlRelation(dataframe2)
 # template.set_default_theme()
 
 app.layout = html.Div(className='content', children=[ 
-    html.Link(rel='stylesheet', href='/assets/styles.css'),
+    html.Link(rel='stylesheet', href='/assets/style.css'),
     html.Header(className='header', children=[
         html.H1('AlayaCare'),
         html.H2("Relations entourant un patient et ses visites médicales")
@@ -125,10 +128,6 @@ app.layout = html.Div(className='content', children=[
                                     showAxisDragHandles=False,
                                     doubleClick=False,
                                     displayModeBar=False
-                                ),                    
-                                style=dict(
-                                    height='500px',
-                                    width='50%'
                                 )
                             )],
                             style={
