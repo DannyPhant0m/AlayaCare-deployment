@@ -161,7 +161,8 @@ app.layout = html.Div(className='content', children=[
                                 )
                             ],
                             style={
-                                'display': 'flex'
+                                'display': 'flex',
+                                'margin-left': '6%'
                             }),
                 ])
                 ,
@@ -192,7 +193,8 @@ app.layout = html.Div(className='content', children=[
                         )
                     ],
                     style={
-                        'display': 'flex'
+                        'display': 'flex',
+                        'margin-left': '6%'
                     }),
                     html.Div([
                         html.P(className='sectionDescription', children=[texts.SECTION_2_GROUPED_BAR_2_DESCRIPTION]),
@@ -214,7 +216,8 @@ app.layout = html.Div(className='content', children=[
                         )
                     ],
                     style={
-                        'display': 'flex'
+                        'display': 'flex',
+                        'margin-left': '6%'
                     }),
                 ])
                 ,
@@ -241,7 +244,8 @@ app.layout = html.Div(className='content', children=[
                             ),
                         ],
                         style={
-                            'display': 'flex'
+                            'display': 'flex',
+                            'margin-left': '6%'
                         }),
                 ]),
                 dcc.Tab(label='Annulation de visites', children=[
@@ -301,14 +305,14 @@ app.layout = html.Div(className='content', children=[
 ])
 
 @app.callback(
-    [dash.dependencies.Output('bubble_chart_section_1', 'figure'),
-     dash.dependencies.Output('heatmap_section_1', 'figure'),
-     dash.dependencies.Output('grouped_bar_chart_1_section_2', 'figure'),
-     dash.dependencies.Output('grouped_bar_chart_2_section_2', 'figure'),
-     dash.dependencies.Output('univariate_scatter_plot_section_2', 'figure'),
-     dash.dependencies.Output('grouped_bar_chart_section_3_1', 'figure'),
-     dash.dependencies.Output('grouped_bar_chart_section_3_2', 'figure')], # Add the output component with different ids
-    dash.dependencies.Input('people-checkbox', 'value')
+    [Output('bubble_chart_section_1', 'figure'),
+     Output('heatmap_section_1', 'figure'),
+     Output('grouped_bar_chart_1_section_2', 'figure'),
+     Output('grouped_bar_chart_2_section_2', 'figure'),
+     Output('univariate_scatter_plot_section_2', 'figure'),
+     Output('grouped_bar_chart_section_3_1', 'figure'),
+     Output('grouped_bar_chart_section_3_2', 'figure')], # Add the output component with different ids
+    Input('people-checkbox', 'value')
 )
 def update_graph(people):
     # Filter the dataset based on the selected people

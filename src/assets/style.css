@@ -192,12 +192,13 @@ button:hover, button:active {
     margin-top: 5%;
     width: 81%;
     margin-left: 3%;
+    width: calc(100% - 300px);
 }
 
 .sectionDescription{
     font-size: 15px;
     padding: 20px;
-    width: 350px;
+    width: calc(100% - 900px);
 }
 
 #section3{
