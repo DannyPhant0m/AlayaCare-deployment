@@ -2,9 +2,6 @@
     Contains some functions related to the creation of the univariate scatter plot of the second section.
 '''
 import plotly.express as px
-import hover_template
-
-from template import THEME
 
 def get_figure(data):
     '''
@@ -68,7 +65,7 @@ def get_figure(data):
             ),
         ),
         title=dict(
-            text = "<b>Nombre de notes versus nombre d'hospitalisations d'un patient au cours de 28 jours<b>",
+            text = "<b>Nombre de chutes versus nombre d'hospitalisations d'un patient au cours de 28 jours<b>",
             font = {
                 'size': 15,
             },

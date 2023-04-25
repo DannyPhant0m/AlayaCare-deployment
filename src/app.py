@@ -29,8 +29,6 @@ import texts
 import plotly.io as pio
 pio.renderers.default = 'iframe'
 
-import template
-
 
 app = dash.Dash(__name__, assets_folder='assets')
 
@@ -56,11 +54,6 @@ dataUnivariateChart = preprocess.getFallsAndHospitalizationTimeline(dataframe2)
 
 dataUnivariateChart1 = preprocess.getCancellationAndPainRelation(dataframe2)
 dataUnivariateChart2 = preprocess.getCancellationAndAdlRelation(dataframe2) 
-
-# We need to add template
-
-# template.create_custom_theme()
-# template.set_default_theme()
 
 app.layout = html.Div(className='content', children=[ 
     html.Link(rel='stylesheet', href='/assets/style.css'),
@@ -118,7 +111,7 @@ app.layout = html.Div(className='content', children=[
                             children=[
                                 html.P(className='sectionHeader', children=[texts.SECTION_1_BUBBLE_CHART_HEADER])
                             ]),
-                        html.Div([        
+                        html.Div(className='sectionContent', children = [        
                             html.P(className='sectionDescription', children=[texts.SECTION_1_BUBBLE_CHART_DESCRIPTION]),
                             dcc.Graph(
                                 id='bubble_chart_section_1',
@@ -143,7 +136,7 @@ app.layout = html.Div(className='content', children=[
                                 children=[
                                     html.P(className='sectionHeader', children=[texts.SECTION_1_2_HEATMAP_1_HEADER])
                             ]),
-                            html.Div([
+                            html.Div(className='sectionContent', children = [
                                 html.P(className='sectionDescription', children=[texts.SECTION_1_BUBBLE_CHART_DESCRIPTION]),
                                 dcc.Graph(
                                     id='heatmap_section_1',
@@ -155,27 +148,18 @@ app.layout = html.Div(className='content', children=[
                                         showAxisDragHandles=False,
                                         doubleClick=False,
                                         displayModeBar=False
-                                    ),                    
-                                    style=dict(
-                                        height='500px',
-                                        width='1100px'
                                     )
                                 )
-                            ],
-                            style={
-                                'display': 'flex',
-                                'margin-left': '6%'
-                            }),
+                            ]),
                 ])
                 ,
                 dcc.Tab(label='Notes et hospitalisations', 
                         selected_className='tab-selected',
                         children=[
-                    html.Div(className='text', 
-                             children=[
+                    html.Div(className='text', children=[
                         html.P(className='sectionHeader', children=[texts.SECTION_2_GROUPED_BAR_HEADER])
                     ]),
-                    html.Div([
+                    html.Div(className='sectionContent', children = [
                         html.P(className='sectionDescription', children=[texts.SECTION_2_GROUPED_BAR_1_DESCRIPTION]),
                         dcc.Graph(
                             id='grouped_bar_chart_1_section_2',
@@ -187,18 +171,10 @@ app.layout = html.Div(className='content', children=[
                                 showAxisDragHandles=False,
                                 doubleClick=False,
                                 displayModeBar=False
-                            ),
-                            style=dict(
-                                height='500px',
-                                width='800px'
                             )
                         )
-                    ],
-                    style={
-                        'display': 'flex',
-                        'margin-left': '6%'
-                    }),
-                    html.Div([
+                    ]),
+                    html.Div(className='sectionContent', children = [
                         html.P(className='sectionDescription', children=[texts.SECTION_2_GROUPED_BAR_2_DESCRIPTION]),
                         dcc.Graph(
                             id='grouped_bar_chart_2_section_2',
@@ -210,27 +186,18 @@ app.layout = html.Div(className='content', children=[
                                 showAxisDragHandles=False,
                                 doubleClick=False,
                                 displayModeBar=False
-                            ),
-                            style=dict(
-                                height='500px',
-                                width='800px'
                             )
                         )
-                    ],
-                    style={
-                        'display': 'flex',
-                        'margin-left': '6%'
-                    }),
+                    ]),
                 ])
                 ,
                 dcc.Tab(label='Chutes et hospitalisations', 
                         selected_className='tab-selected',
                         children=[
-                        html.Div(className='text', 
-                             children=[
-                                html.P(className='sectionHeader', children=[texts.SECTION_2_UNIVARIATE_SCATTER_PLOT_HEADER])
+                        html.Div(className='text', children=[
+                            html.P(className='sectionHeader', children=[texts.SECTION_2_UNIVARIATE_SCATTER_PLOT_HEADER])
                         ]),
-                        html.Div([
+                        html.Div(className='sectionContent', children = [
                             html.P(className='sectionDescription', children=[texts.SECTION_2_UNIVARIATE_SCATTER_PLOT_DESCRIPTION]),
                             dcc.Graph(
                                 id='univariate_scatter_plot_section_2',
@@ -244,17 +211,14 @@ app.layout = html.Div(className='content', children=[
                                     displayModeBar=False
                                 )
                             ),
-                        ],
-                        style={
-                            'display': 'flex',
-                            'margin-left': '6%'
-                        }),
+                        ]),
                 ]),
-                dcc.Tab(label='Annulation de visites', children=[
-                    html.Div([
+                dcc.Tab(label='Annulation de visites', 
+                        selected_className='tab-selected', children=[
+                    html.Div(className='text', children=[
                         html.P(className='sectionHeader', id='section3', children=[texts.SECTION_3_GROUPED_BAR_HEADER])
                     ]),
-                    html.Div([
+                    html.Div(className='sectionContent', children = [
                         html.P(className='sectionDescription', children=[texts.SECTION_3_GROUPED_BAR_1_DESCRIPTION]),
                         dcc.Graph(
                             id='grouped_bar_chart_section_3_1',
@@ -266,18 +230,10 @@ app.layout = html.Div(className='content', children=[
                                 showAxisDragHandles=False,
                                 doubleClick=False,
                                 displayModeBar=False
-                            ),
-                            style=dict(
-                                height='500px',
-                                width='850px'
                             )
                         ),
-                    ],
-                    style={
-                        'display': 'flex',
-                        'margin-left': '8%'
-                    }),
-                    html.Div([
+                    ]),
+                    html.Div(className='sectionContent', children = [
                         html.P(className='sectionDescription', children=[texts.SECTION_3_GROUPED_BAR_2_DESCRIPTION]),                        
                         dcc.Graph(
                             id='grouped_bar_chart_section_3_2',
@@ -289,16 +245,11 @@ app.layout = html.Div(className='content', children=[
                                 showAxisDragHandles=False,
                                 doubleClick=False,
                                 displayModeBar=False
-                            ),
-                            style=dict(
-                                height='500px',
-                                width='850px'
                             )
                         )
                     ],
                     style={
-                        'display': 'flex',
-                        'margin-left': '8%'
+                        'display': 'flex'
                     })
                 ]),
             ])
